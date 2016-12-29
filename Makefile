@@ -1,17 +1,18 @@
 
-SRC=$(wildcard *.asm)
+SRC = $(wildcard *.asm)
 
-TAPDIR=out
+TAPDIR = out
 
 $(TAPDIR):
 	mkdir $(TAPDIR)
 
-tapes=$(addprefix $(TAPDIR)/, draw-line.tap)
+tapes = $(patsubst %.asm,$(TAPDIR)/%.tap,$(SRC))
 
 all: $(TAPDIR) $(tapes)
 
 clean:
 	rm -rf $(TAPDIR)
 
-$(tapes): $(SRC)
+$(TAPDIR)/%.tap: %.asm
+	@echo $<
 	pasmo --tapbas $< $@
