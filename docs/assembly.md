@@ -60,3 +60,15 @@ Parentheses denote memory addresses, rather than absolute values.
 * Z - Zero
 * NC - No Carry
 * C - Carry
+
+## Shift
+
+## Rotate
+
+## AND, OR, XOR
+
+## ADD, SUB, CP 
+
+## PUSH, POP
+
+## IN, OUT
