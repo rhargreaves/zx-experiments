@@ -1,7 +1,7 @@
 
 # Registers
 
-| Register | Name | Usage |
+| Register | Purpose | Usages |
 |----------|------|-------|
 | A | Accumulator | |
 | F | Flags | **S**ign (if minus)	**Z**ero **-** **H** **-**	**P**arity/Overflow	**N**ot	**C**arry	|
