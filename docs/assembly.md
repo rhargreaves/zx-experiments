@@ -36,3 +36,21 @@ Parentheses denote memory addresses, rather than absolute values.
 | JP Z, 7FFFH | Conditional Jump | Jump to address 7FFFH if condition met |
 | JR 10 | Relative Jump | Jump forward 10 + 2 |
 | JR Z, 10<br>JR NZ, 10 | Conditional Relative Jump | Jump forward 10 + 2 if Z flag 1 (or 0 if NZ used) |
+
+# Conditions for JP
+
+* NZ - Not Zero
+* Z - Zero
+* NC - No Carry
+* C - Carry
+* PO - Parity Odd
+* PE - Parity Even
+* P - Sign Positive
+* M - Sign Negative
+
+# Conditions for JR
+
+* NZ - Not Zero
+* Z - Zero
+* NC - No Carry
+* C - Carry
