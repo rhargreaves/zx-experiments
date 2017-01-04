@@ -21,7 +21,7 @@
 | IY | Index Y | |
 | SP | Stack Pointer | 16-bit address |
 | PC | Program Counter | 16-bit data |
-| A' to L' | Shadow registers | Exchanged with A to L through use of EX and EXX |
+| A' to L' | Shadow | Exchanged with A to L through use of EX and EXX |
 
 # Operators
 
