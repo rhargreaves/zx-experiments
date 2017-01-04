@@ -8,6 +8,9 @@
 | BC | 16-bit address/data or two single 8-bit registers | Result of USR BASIC function |
 | DE | 16-bit address/data or two single 8-bit registers | |
 | HL | 16-bit accumulator/address register or two 8-bit registers | Accumulator abilities make it popular for holding source addresses |
+| SP | Stack Pointer | 16-bit address |
+| PC | Program Counter | 16-bit data |
+| A' to L' | Shadow registers | Exchanged with A to L through use of EX and EXX |
 
 # Operators
 
