@@ -32,12 +32,18 @@ Parentheses denote memory addresses, rather than absolute values.
 | LD A, 12<br>LD A, (7FFFH)<br>LD (7FFFH), A<br>LD (BC), A | Load | Load (or store) into destination (1st) from source (2nd). Does not affect flags. |
 | INC A<br>INC (HL)<br>INC HL  | Increment | Increments by 1 |
 | DEC A<br>DEC (HL)<br>DEC HL  | Decrement | Decrements by 1 |
+
+## Jumps
+
+| Assembly                                        | Name | Usage                                                  |
+|-------------------------------------------------|------|--------------------------------------------------------|
 | JP 7FFFH | Jump | Jump to address 7FFFH |
 | JP Z, 7FFFH | Conditional Jump | Jump to address 7FFFH if condition met |
 | JR 10 | Relative Jump | Jump forward 10 + 2 |
 | JR Z, 10<br>JR NZ, 10 | Conditional Relative Jump | Jump forward 10 + 2 if Z flag 1 (or 0 if NZ used) |
 
-## Conditions for JP
+### Conditions
+#### For JP
 
 * NZ - Not Zero
 * Z - Zero
@@ -48,7 +54,7 @@ Parentheses denote memory addresses, rather than absolute values.
 * P - Sign Positive
 * M - Sign Negative
 
-## Conditions for JR
+#### For JR
 
 * NZ - Not Zero
 * Z - Zero
