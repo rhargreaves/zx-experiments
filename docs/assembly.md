@@ -15,6 +15,6 @@ Parentheses denote memory addresses, rather than absolute values.
 
 | Assembly                                        | Name | Usage                                                  |
 |-------------------------------------------------|------|--------------------------------------------------------|
-| LD A, 12<br>LD A, (7FFFH)<br>LD (7FFFH), A<br>LD (HL), A | Load | Load into destination (1st) from source (2nd) |
+| LD A, 12<br>LD A, (7FFFH)<br>LD (7FFFH), A<br>LD (HL), A | Load | Load (or store) into destination (1st) from source (2nd) |
 |                                                 |      |                                                        |
 |                                                 |      |                                                        |
