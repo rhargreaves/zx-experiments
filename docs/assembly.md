@@ -29,7 +29,7 @@ Parentheses denote memory addresses, rather than absolute values.
 
 | Assembly                                        | Name | Usage                                                  |
 |-------------------------------------------------|------|--------------------------------------------------------|
-| LD A, 12<br>LD A, (7FFFH)<br>LD (7FFFH), A<br>LD (BC), A | Load | Load (or store) into destination (1st) from source (2nd) |
+| LD A, 12<br>LD A, (7FFFH)<br>LD (7FFFH), A<br>LD (BC), A | Load | Load (or store) into destination (1st) from source (2nd). Does not affect flags. |
 | INC A<br>INC (HL)<br>INC HL  | Increment | Increments by 1 |
 | DEC A<br>DEC (HL)<br>DEC HL  | Decrement | Decrements by 1 |
-|                                                 |      |                                                        |
+| JR Z, 10<br>JR NZ, 10 | Conditional Relative Jump | Jump forward 10 + 2 if Z flag 1 (or 0 if NZ used) |
