@@ -1,17 +1,16 @@
 
 SRC = $(wildcard *.asm)
 BASIC_SRC = $(wildcard *.bas)
-
+TAPES = $(patsubst %.asm,$(TAPDIR)/%.tap,$(SRC))
+BASIC_TAPES = $(patsubst %.bas,$(TAPDIR)/%.tap,$(BASIC_SRC))
 PASMO = docker run -v $(PWD):/work -w="/work" -it charlottegore/pasmo pasmo
 TAPDIR = out
 
+.PHONY: all clean test
+
+all: $(TAPES) $(BASIC_TAPES) $(TAPDIR)
 $(TAPDIR):
 	mkdir $(TAPDIR)
-
-tapes = $(patsubst %.asm,$(TAPDIR)/%.tap,$(SRC))
-basic_tapes = $(patsubst %.bas,$(TAPDIR)/%.tap,$(BASIC_SRC))
-
-all: $(tapes) $(basic_tapes) $(TAPDIR)
 
 clean:
 	rm -rf $(TAPDIR)
