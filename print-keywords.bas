@@ -1,0 +1,5 @@
+10 PRINT 150;"     ";: FOR n = 150 TO 516
+20 LET k = PEEK n
+30 IF k < 127 THEN PRINT CHR$ k;
+40 IF k > 128 THEN PRINT CHR$ (k - 128): PRINT n;"     ";
+50 NEXT n
