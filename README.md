@@ -20,16 +20,16 @@ Mucking around with Z80 assembly.
 
 3. Pull bas2tap
 
-  ```
-  $ git submodule update --init
-  ```
+      ```
+      $ git submodule update --init
+      ```
 
-4. Compile bas2tap:
+4. Compile bas2tap
 
-```
-$ cd bas2tap
-$ make
-```
+    ```
+    $ cd bas2tap
+    $ make
+    ```
 
 ## Compiling Source (BASIC & Assembly)
 
