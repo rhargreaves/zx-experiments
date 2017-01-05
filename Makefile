@@ -25,4 +25,4 @@ $(TAPDIR)/%.tap: %.asm
 
 $(TAPDIR)/%.tap: %.bas
 	@echo $<
-	bas2tap/bin/bas2tap $< $@
+	bas2tap/bas2tap $< $@
