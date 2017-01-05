@@ -1,4 +1,3 @@
-
 SRC = $(wildcard src/*.asm)
 BASIC_SRC = $(wildcard src/*.bas)
 TAPES = $(patsubst src/%.asm,$(TAPDIR)/%.tap,$(SRC))
@@ -10,19 +9,14 @@ TAPDIR = bin
 
 all: $(TAPES) $(BASIC_TAPES)
 
-$(TAPDIR):
-	mkdir $(TAPDIR)
-
 clean:
 	rm -rf $(TAPDIR)
 
-test: $(tapes)
-	fuse --tape $< --auto-load --no-autosave-settings
+$(TAPDIR):
+	mkdir $(TAPDIR)
 
 $(TAPDIR)/%.tap: src/%.asm $(TAPDIR)
-	@echo $<
 	$(PASMO) --tapbas $< $@
 
 $(TAPDIR)/%.tap: src/%.bas $(TAPDIR)
-	@echo $<
 	bas2tap/bas2tap $< $@
