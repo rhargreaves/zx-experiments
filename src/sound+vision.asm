@@ -11,7 +11,7 @@ snd_loop	ld a,01h
 		ld b,0c0h
 delay1		djnz (delay1)
 		ld a,013h
-		out (0feh),a		; 1 to SPK, 6 to BORDER
+		out (0feh),a		; 1 to SPK, 3 to BORDER
 		ld b,0c0h
 delay2		djnz (delay2)
 		dec c			; decrement main loop
