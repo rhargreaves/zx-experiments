@@ -22,7 +22,7 @@ proc
 local		loop,delay
 rumble_snd	di
 		ld	hl,0000h
-		ld	de,2000h
+		ld	de,1000h
 loop		ld	a,(hl)
 		out	(0feh),a
 		ld	b,0ffh
@@ -33,6 +33,23 @@ delay		djnz	(delay)
 		or	d
 		jr	nz,loop
 		ei
+endp
+
+proc
+local		delay,pitch_loop,cycle_loop
+engine_snd	ld	hl,0000h	; set 'random' bit source address to ROM start
+		ld	c,0		; initial (short) time between edges (high pitch)
+pitch_loop	ld	d,020h		; total number of cycles per pitch
+cycle_loop	ld	a,(hl)		; load ROM bits
+		and	012h		; Mask bits - only set BORDER & SPK
+		out	(0feh),a	; Send bits to PORT
+		ld	b,c		; Load delay time into DJNZ's register
+delay		djnz	(delay)
+		inc	hl		; increment ROM address for sound bits
+		dec	d		; decrement cycles remaining
+		jr	nz,(cycle_loop)	; next cycle
+		inc	c		; increase time between edges (lower pitch)
+		jr	nz,(pitch_loop)	; next pitch
 endp
 
 		ret
