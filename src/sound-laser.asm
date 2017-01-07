@@ -1,8 +1,19 @@
-org 8000h
+		org	8000h
 
 ; Port 254 Bits:
 ; - - - S M B B B
 ; 7 6 5 4 3 2 1 0
+
+proc
+banner		ld	a,0eh		; Yellow ink on blue paper
+		ld	(5c8dh),a	; Set screen colours
+		call	0dafh		; Clear screen
+		ld	a,2		; Upper screen
+		call	1601h		; Open channel
+		ld	de,banner_txt	; Text address
+		ld	bc,banner_txt_end-banner_txt	; Length of string to print
+		call	203ch		; Print string
+endp
 
 proc
 local		loop
@@ -54,4 +65,10 @@ endp
 
 		ret
 
-end 8000h
+banner_txt	defb	16h,06h,08h		; AT 6,8 (y,x)
+		defb	12h,01h			; FLASH 1
+		defb	' Sound & Vision '
+		defb	12h,00h			; FLASH 0
+banner_txt_end	equ	$
+
+		end	8000h
