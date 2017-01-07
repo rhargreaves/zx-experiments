@@ -31,19 +31,19 @@ endp
 
 proc
 local		loop,delay
-rumble_snd	di
-		ld	hl,0000h
-		ld	de,1000h
-loop		ld	a,(hl)
-		out	(0feh),a
-		ld	b,0ffh
+rumble_snd	di			; Disable maskable interrupts
+		ld	hl,0000h	; Start of ROM - source of random bits
+		ld	de,1000h	; Rumble sound length
+loop		ld	a,(hl)		; Get random bits
+		out	(0feh),a	; Send to speaker/border
+		ld	b,0ffh		; Set delay to max length
 delay		djnz	(delay)
-		dec	de
-		inc	hl
+		dec	de		; Decrease rumble length counter
+		inc	hl		; Next ROM address
 		ld	a,e
-		or	d
-		jr	nz,loop
-		ei
+		or	d		; Has DE reached 0?
+		jr	nz,loop		; Loop if so.
+		ei			; Enable interrupts again
 endp
 
 proc
